@@ -224,22 +224,6 @@ new Chartist.Bar('#localStorageChart', {
   }, {
     distributeSeries: true
   });
-
-  db.collection("Games Played")
-  .get()
-  .then((querySnapshot) => {
-    const dateData = [];
-    const markData = [];
-
-    querySnapshot.forEach((doc) => {
-      const gameData = doc.data();
-      const {date, mark } = gameData;
-
-      dateData.push(date);
-      markData.push(mark);
-    });
-
-})
 }
 
 // Mostrar resultados de la partida
@@ -314,7 +298,7 @@ function paintSecondGraph() {
         // Obtener el contenedor de la gráfica existente
         const chartContainer = document.querySelector('#fireStoreChart');
   
-        // Eliminar la gráfica existente si hay una
+        // Eliminar la gráfica existente si ya existe alguna
         if (chartContainer.firstChild) {
           chartContainer.firstChild.remove();
         }
